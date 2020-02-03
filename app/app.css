@@ -1,0 +1,58 @@
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li + li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+/*customs*/
+.card {
+  display:block;
+  float:left;
+  width:300px;
+  height: 560px;
+  margin:15px;
+  padding-top: 0;
+  border-radius: 20px;
+  border: 1px solid black;
+}
+
+.custom_header{
+  margin-left: 30px;
+  margin-right: 45px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.custom_title{
+  font-size: larger;
+  text-align: center;
+  color: cadetblue;
+}
+
+.custom_no_data{
+  background-color: darkcyan;
+  height: 554px;
+  text-align: center;
+  padding-top: 20%;
+  color: aliceblue;
+}

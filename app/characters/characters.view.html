@@ -1,0 +1,56 @@
+
+  <div class="container-fluid" ng-controller="charactersCtrl as cc" style="background-color: darkcyan;" id="main" name="main">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top custom_header" >
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto" style="width: 100%;">
+            <li class="nav-item active">
+              <a class="navbar-brand" href="#">
+                <img src="../img/rm.png" width="55" height="45" alt="">
+              </a>
+            </li>
+            <h5 class="custom_title">{{cc.labels.title}}</h5>
+          
+          <form class="form-inline col-sm-10" style=" padding-left: 8%;">
+            <input class="form-control col-sm-3" type="search" placeholder="{{cc.labels.s_name}}" ng-model="cc.search_name" ng-change="cc.changeInputsFilter(this.name);" aria-label="Search" name="nameInput" id="nameInput" style="margin-right: 5px;">
+            <input class="form-control col-sm-3" type="search" placeholder="{{cc.labels.s_specie}}" ng-model="cc.search_specie" ng-change="cc.changeInputsFilter(thie.name);" aria-label="Search" name="specieInput" id="specieInput" style="margin-right: 5px;">
+            <select class="form-control col-sm-2" name="repeatCharacters" id="repeatCharacters" ng-model="cc.gender_data.model" ng-change="cc.filterByGender();" style="margin-right: 20px;">
+              <option ng-repeat="option in cc.gender_data.genderOptions" value="{{option.name}}">{{option.name}}</option>
+            </select>
+            
+            <button type="button" class="btn btn-outline-warning" style="margin-left: 10px;" ng-click="cc.init();">
+              <i class="fa fa-refresh"></i>
+            </button>
+          </form>
+        </div>
+      </nav>
+     
+      <div class="container-fluid" ng-if="cc.result.length > 0" >
+        <div  ng-repeat="card in cc.result track by $index" class="card" style="width: 18rem; height: 600px; margin-top: 6%;">
+          <img src="{{card.image}}" class="card-img-top" alt="..." ng-style="{'opacity':(card.status=='Dead'?'.3':'1')}">
+          <div class="card-body text-white bg-dark">
+            <h5 class="card-title"><b>{{card.name}}</b></h5>
+          </div>
+
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item text-black"><b>{{cc.labels.species}}</b> {{card.species}}</li>
+              <li class="list-group-item" style="display: flex;"><b>{{cc.labels.gender}}</b> {{card.gender}} 
+                <div class="container-fluid">
+                  <img ng-src="../img/{{card.gender}}.png" width="20" height="20" alt="" style="text-align: end;">
+                </div>
+              </li>
+              <li class="list-group-item"><b>{{cc.labels.location}}</b> {{card.location.name}} </li>
+              <li class="list-group-item"><b>{{cc.labels.c_date}}</b> {{card.created | date:'dd/MM/yyyy'}} </li>
+              <li class="list-group-item"><b>{{cc.labels.status}}</b> <span ng-style="{'color':(card.status=='Dead'?'red':'black')}">{{card.status}}</span> </li>
+            </ul>
+          
+        </div>
+      </div>
+      <div class="container-fluid custom_no_data" ng-if="cc.result.length == 0">
+        <h3>{{cc.labels.no_data}}</h3>
+      </div>
+      <div class="btn-group col-md-12" role="group" aria-label="previous" ng-if="cc.result.length > 0">
+        <button type="submit" class="btn btn-light" ng-enabled="!cc.dis_prev" ng-click="cc.navClickPrev();" :ng-disabled="cc.previus_pege == ''? true: false" style="margin-left: 15px;"><b>{{cc.labels.previous}}</b></button>
+        <button type="submit" class="btn btn-light" ng-click="cc.navClickNext();" :ng-disabled="cc.next_pege == ''? true: false" style="margin-right: 30px;"><b>{{cc.labels.next}}</b></button>
+      </div>
+  </div>
