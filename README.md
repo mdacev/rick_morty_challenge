@@ -6,6 +6,8 @@ Un ejercicio (Front-End) para la empresa Retargetly , realizado en AngularJs y u
 
 Para empezar, puede clonar el repositorio de rick_morty_challenge e instalar las dependencias:
 
+https://github.com/mdacev/rick_morty_challenge.git
+
 ### Prerequisites
 
 También utilice una serie de herramientas de Node.js para inicializar y probar. Debe tener Node.js
