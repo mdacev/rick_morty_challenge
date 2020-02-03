@@ -1,4 +1,4 @@
-# `rick_morty_challenge` — AngularJS
+# `rick_morty_challenge` en AngularJS
 
 Un ejercicio (Front-End) para la empresa Retargetly , realizado en AngularJs y utiliazando la API https://rickandmortyapi.com/
 
@@ -25,13 +25,13 @@ y su administrador de paquetes (npm) instalado.
 npm install
 ```
 
-### correr la aplicaciíon.
+### correr la aplicación.
 
 ```
 npm start
 ```
 
-url:  [`localhost:8000]
+url:  localhost:8000
 
 ## Contact
 
