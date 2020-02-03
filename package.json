@@ -1,9 +1,9 @@
 {
   "name": "angular-seed",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0",
   "description": "Challenge",
-  "repository": "https://github.com/angular/angular-seed",
+  "repository": "https://github.com/mdacev/rick_morty_challenge.git",
   "license": "MIT",
   "dependencies": {
     "angular": "^1.7.9",
