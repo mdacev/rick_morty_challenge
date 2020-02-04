@@ -1,6 +1,6 @@
 # `rick_morty_challenge` en AngularJS
 
-Un ejercicio (Front-End) para la empresa Retargetly , realizado en AngularJs y utiliazando la API https://rickandmortyapi.com/
+Un ejercicio (Front-End) para la empresa Retargetly , realizado en AngularJs y utiliazando la API https://rickandmortyapi.com/api
 
 ## Empezar
 
