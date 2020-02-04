@@ -26,22 +26,22 @@
       </nav>
      
       <div class="container-fluid" ng-if="cc.result.length > 0" >
-        <div  ng-repeat="card in cc.result track by $index" class="card" style="width: 18rem; height: 600px; margin-top: 6%;">
+        <div  ng-repeat="card in cc.result track by $index" class="card" style="width: 18rem;  margin-top: 6%; margin-bottom: 10px;">
           <img src="{{card.image}}" class="card-img-top" alt="..." ng-style="{'opacity':(card.status=='Dead'?'.3':'1')}">
-          <div class="card-body text-white bg-dark">
-            <h5 class="card-title"><b>{{card.name}}</b></h5>
+          <div class="card-body text-white bg-dark" style="height: 50px; max-height: 50px;">
+            <h6 class="card-title"><b>{{card.name.trim()}}</b></h6>
           </div>
 
             <ul class="list-group list-group-flush">
-              <li class="list-group-item text-black"><b>{{cc.labels.species}}</b> {{card.species}}</li>
-              <li class="list-group-item" style="display: flex;"><b>{{cc.labels.gender}}</b> {{card.gender}} 
+              <li class="list-group-item text-black" style="padding-top: 5px; padding-bottom: 5px;"><b>{{cc.labels.species}}</b> {{card.species}}</li>
+              <li class="list-group-item" style="display: flex; padding-top: 5px; padding-bottom: 5px;"><b>{{cc.labels.gender}}</b> {{card.gender}} 
                 <div class="container-fluid">
                   <img ng-src="../img/{{card.gender}}.png" width="20" height="20" alt="" style="text-align: end;">
                 </div>
               </li>
-              <li class="list-group-item"><b>{{cc.labels.location}}</b> {{card.location.name}} </li>
-              <li class="list-group-item"><b>{{cc.labels.c_date}}</b> {{card.created | date:'dd/MM/yyyy'}} </li>
-              <li class="list-group-item"><b>{{cc.labels.status}}</b> <span ng-style="{'color':(card.status=='Dead'?'red':'black')}">{{card.status}}</span> </li>
+              <li class="list-group-item "  style="padding-top: 5px; padding-bottom: 5px;"><b>{{cc.labels.location}}</b> {{card.location.name}} </li>
+              <li class="list-group-item "  style="padding-top: 5px; padding-bottom: 5px;"><b>{{cc.labels.c_date}}</b> {{card.created | date:'dd/MM/yyyy'}} </li>
+              <li class="list-group-item "  style="padding-top: 5px; padding-bottom: 5px;"><b>{{cc.labels.status}}</b> <span ng-style="{'color':(card.status=='Dead'?'red':'black')}">{{card.status}}</span> </li>
             </ul>
           
         </div>
