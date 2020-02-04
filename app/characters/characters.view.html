@@ -28,7 +28,7 @@
       <div class="container-fluid" ng-if="cc.result.length > 0" >
         <div  ng-repeat="card in cc.result track by $index" class="card" style="width: 18rem;  margin-top: 6%; margin-bottom: 10px;">
           <img src="{{card.image}}" class="card-img-top" alt="..." ng-style="{'opacity':(card.status=='Dead'?'.3':'1')}">
-          <div class="card-body text-white bg-dark" style="height: 50px; max-height: 50px;">
+          <div class="card-body text-white bg-dark" style="height: 45px; max-height: 65px;">
             <h6 class="card-title"><b>{{card.name.trim()}}</b></h6>
           </div>
 
