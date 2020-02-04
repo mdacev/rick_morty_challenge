@@ -14,7 +14,7 @@ También utilice una serie de herramientas de Node.js para inicializar y probar.
 y su administrador de paquetes (npm) instalado.
 
 
-### Instalar Dependencias
+### Dependencias
 
 "angular": "^1.7.9",
 "angular-loader": "^1.7.9",
@@ -22,11 +22,7 @@ y su administrador de paquetes (npm) instalado.
 "boostrap": "^2.0.0",
 "html5-boilerplate": "0.0.1"
 
-```
-npm install
-```
-
-### correr la aplicación.
+### Correr la aplicación.
 
 ```
 npm start
