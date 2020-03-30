@@ -63,7 +63,6 @@
                 //Funciones
                 init: init,
                 scrollUp: scrollUp,
-                getByAPI:  getByAPI,
                 navClickPrev: navClickPrev,
                 navClickNext: navClickNext,
                 changeInputsFilter: changeInputsFilter,
@@ -95,7 +94,7 @@
                 cc.dis_prev = true;
                 cc.path = cc.path+'page=1'
         
-                getByAPI();
+                this.getByAPI();
             };
             
 
@@ -104,13 +103,13 @@
             }
 
 
-            function getByAPI() {
+            this.getByAPI = async () => {
                 var _path = cc.path;
                 //disabled buttons.
                 cc.next_pege = "";
                 cc.previus_pege = "";
 
-                charactersService.getCharactersByApi(_path).then(function(r) {
+                 await charactersService.getCharactersByApi(_path).then(function(r) {
 
                     if(r.error){
                         cc.result = [];
@@ -130,13 +129,13 @@
             function navClickPrev(){
                 scrollUp();
                 cc.path = cc.previus_pege;
-                getByAPI();
+                this.getByAPI();
                 
             }
             function navClickNext(){
                 scrollUp();
                 cc.path = cc.next_pege;
-                getByAPI();
+                this.getByAPI();
             }
 
             
@@ -146,7 +145,7 @@
                 console.log(n);
                 if(cc.search_name.trim() == '' && cc.search_specie.trim() == '' && cc.gender_data.model == cc.gender_data.genderOptions[0].name){
                     cc.path = cc.path+"page=1";
-                    getByAPI();
+                    this.getByAPI();
                     
                 }else{
 
@@ -162,7 +161,7 @@
                     if(cc.gender_data.model != cc.gender_data.genderOptions[0].name)
                         cc.path = cc.path + "&" + cc.q_gender + cc.gender_data.model;
 
-                    getByAPI();
+                    this.getByAPI();
                 }
                     
             }
@@ -189,7 +188,7 @@
                         cc.path = cc.path + "&" + cc.q_name + cc.search_name;
                 }
                 
-                getByAPI();
+                this.getByAPI();
                 
             }
 
