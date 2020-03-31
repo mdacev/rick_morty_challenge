@@ -94,7 +94,7 @@
                 cc.dis_prev = true;
                 cc.path = cc.path+'page=1'
         
-                this.getByAPI();
+               cc.getByAPI();
             };
             
 
@@ -103,39 +103,45 @@
             }
 
 
-            this.getByAPI = async () => {
+           cc.getByAPI = async () => {
                 var _path = cc.path;
                 //disabled buttons.
                 cc.next_pege = "";
                 cc.previus_pege = "";
+                try {
+                    await charactersService.getCharactersByApi(_path).then(function(r) {
 
-                 await charactersService.getCharactersByApi(_path).then(function(r) {
-
-                    if(r.error){
-                        cc.result = [];
-                        return;
-                    }
-                    if(r.info != undefined){
-                        cc.total_peges = r.info.pages;
-                        cc.next_pege = r.info.next;
-                        cc.previus_pege = r.info.prev;
-                        cc.result = r.results;
-                    }
-                });
-                cc.path = eop;
-                scrollUp();
+                        if(r.error){
+                            cc.result = [];
+                            return;
+                        }
+                        if(r.info != undefined){
+                            cc.total_peges = r.info.pages;
+                            cc.next_pege = r.info.next;
+                            cc.previus_pege = r.info.prev;
+                            cc.result = r.results;
+                        }
+                    });
+                    cc.path = eop;
+                    scrollUp();
+                }
+                catch(e){
+                    r.status(400).json({
+                        error: e
+                    });
+                }
             }
 
             function navClickPrev(){
                 scrollUp();
                 cc.path = cc.previus_pege;
-                this.getByAPI();
+               cc.getByAPI();
                 
             }
             function navClickNext(){
                 scrollUp();
                 cc.path = cc.next_pege;
-                this.getByAPI();
+               cc.getByAPI();
             }
 
             
@@ -145,7 +151,7 @@
                 console.log(n);
                 if(cc.search_name.trim() == '' && cc.search_specie.trim() == '' && cc.gender_data.model == cc.gender_data.genderOptions[0].name){
                     cc.path = cc.path+"page=1";
-                    this.getByAPI();
+                   cc.getByAPI();
                     
                 }else{
 
@@ -161,7 +167,7 @@
                     if(cc.gender_data.model != cc.gender_data.genderOptions[0].name)
                         cc.path = cc.path + "&" + cc.q_gender + cc.gender_data.model;
 
-                    this.getByAPI();
+                   cc.getByAPI();
                 }
                     
             }
@@ -188,7 +194,7 @@
                         cc.path = cc.path + "&" + cc.q_name + cc.search_name;
                 }
                 
-                this.getByAPI();
+               cc.getByAPI();
                 
             }
 
