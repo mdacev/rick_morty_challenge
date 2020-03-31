@@ -29,7 +29,7 @@
   display:block;
   float:left;
   width:305px;
-  height: 550px;
+  height: 560px;
   border-radius: 20px;
   border: 1px solid black;
 }
@@ -51,4 +51,10 @@
   text-align: center;
   padding-top: 20%;
   color: aliceblue;
+}
+
+.btn_page{
+  background-color: darkcyan;
+  color: white;
+  border-color: white;
 }

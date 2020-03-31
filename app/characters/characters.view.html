@@ -29,7 +29,7 @@
       <div class="container-fluid offset-md-0 mt-4" ng-if="cc.result.length > 0" >
         <div  ng-repeat="card in cc.result track by $index" class="card m-2" >
           <img src="{{card.image}}" class="card-img-top" alt="..." ng-style="{'opacity':(card.status=='Dead'?'.3':'1')}">
-          <div class="card-body text-white bg-dark" style="height: 45px; max-height: 65px;">
+          <div class="card-header text-white bg-dark" >
             <h6 class="card-title"><b>{{card.name.trim()}}</b></h6>
           </div>
 
@@ -50,8 +50,8 @@
       <div class="container-fluid custom_no_data" ng-if="cc.result.length == 0">
         <h3>{{cc.labels.no_data}}</h3>
       </div>
-      <div class="btn-group col-md-12" role="group" aria-label="previous" ng-if="cc.result.length > 0">
-        <button type="submit" class="btn btn-light" ng-enabled="!cc.dis_prev" ng-click="cc.navClickPrev();" :ng-disabled="cc.previus_pege == ''? true: false" style="margin-left: 15px;"><b>{{cc.labels.previous}}</b></button>
-        <button type="submit" class="btn btn-light" ng-click="cc.navClickNext();" :ng-disabled="cc.next_pege == ''? true: false" style="margin-right: 30px;"><b>{{cc.labels.next}}</b></button>
+      <div class="btn-group col-md-4 mb-1 offset-md-4" role="group" aria-label="previous" ng-if="cc.result.length > 0">
+        <button type="button" class="btn btn btn-dark mr-5 ml-5"  ng-enabled="!cc.dis_prev" ng-click="cc.navClickPrev();" :ng-disabled="cc.previus_pege == ''? true: false"><b>{{cc.labels.previous}}</b></button>
+        <button type="button" class="btn btn btn-dark mr-5 ml-5"  ng-click="cc.navClickNext();" :ng-disabled="cc.next_pege == ''? true: false"><b>{{cc.labels.next}}</b></button>
       </div>
   </div>
